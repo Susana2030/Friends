@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#291f39">
+<title>¿Tomamos un café? | Friends</title>
+<link rel="stylesheet" href="css/estilos.css">
+<script defer src="js/data.js"></script>
+<script defer src="js/hero.js"></script>
+<script defer src="js/gallery.js"></script>
+<script defer src="js/cafe.js"></script>
+<script defer src="js/audio.js"></script>
+<script defer src="js/main.js"></script>
+<script defer src="js/script.js"></script>
+</head>
+<body>
+<div class="app ">
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="site-header">
+<div class="container header-inner">
+<a class="brand" href="index.html" aria-label="Friends, ir al inicio">
+<img src="img/home/friends-logo.png" width="2048" height="800" alt="Friends"/>
+</a>
+<nav id="navegacion" class="navigation " aria-label="Navegación principal">
+<a href="index.html">Inicio</a>
+<a href="personajes.html">Personajes</a>
+<a href="temporadas.html">Temporadas</a>
+<a href="galeria.html">Galería</a>
+<a class="cafe-nav-link" href="cafe.html" aria-label="Central Perk: ¿Tomamos un café?" aria-current="page">
+<img src="img/home/central-perk.png" width="1760" height="880" alt="Central Perk">
+</a>
+</nav>
+<button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navegacion">☰</button>
+</div>
+</header>
+<main id="contenido" tabindex="-1">
+<div class="cafe-page container">
+<header class="cafe-heading">
+<div><h1 id="cafe-title">¿Tomamos un café?</h1>
+<p>Una mesa, tus amigos y mil historias por compartir.</p></div>
+</header>
+<div class="cafe-split">
+<section class="club-section" id="formulario" aria-labelledby="form-title">
+<span class="eyebrow">El club de amigos</span>
+<h2 id="form-title">Te guardamos un lugar.</h2>
+<p>Contanos tu plan para la próxima juntada.</p>
+<form class="contact-form">
+<div class="form-row">
+<div class="field"><label for="nombre">Nombre</label><input id="nombre" name="nombre" required minlength="2" maxlength="80" autocomplete="given-name"></div>
+<div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required maxlength="150" autocomplete="email"></div>
+</div>
+<div class="field"><label for="plan">¿Cuál es tu plan?</label>
+<select id="plan" name="plan"><option>Reservar una mesa entre amigos</option><option>Sumarme al club de amigos</option><option>Hacer una consulta</option></select></div>
+<div class="field"><label for="personaje">Tu personaje favorito</label>
+<select id="personaje" name="personaje"><option value="">Elegí un personaje</option><option>Rachel</option><option>Monica</option><option>Phoebe</option><option>Joey</option><option>Chandler</option><option>Ross</option></select></div>
+<div class="field"><label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" required minlength="10" maxlength="2000" rows="5" aria-describedby="message-help"></textarea>
+<span id="message-help" class="small">Entre 10 y 2000 caracteres.</span></div>
+<p class="club-note">Sitio de fans: no se realizan reservas ni suscripciones. Tu mensaje se prepara para descargarlo.</p>
+<button class="button" type="submit">Preparar mensaje ↗</button>
+<div class="form-status" role="status" tabindex="-1"></div>
+</form>
+</section>
+<aside class="studio-section" aria-labelledby="locations-title">
+<figure class="studio-photo"><img src="img/galeria/05-grupo-en-sillon.webp" alt="Los amigos reunidos en el sillón de Central Perk"></figure>
+<span class="eyebrow">Detrás de las cámaras</span>
+<h2 id="locations-title">El set de Friends</h2>
+<div class="map-panel">
+<div class="map-heading"><h3>Stage 24 · Warner Bros. Studios</h3><address>Burbank, CA, Estados Unidos</address></div>
+<div class="map-embed"><iframe title="Ubicación de Stage 24, Warner Bros. Studios, Burbank" src="https://maps.google.com/maps?q=Stage%2024%20Warner%20Bros.%20Studios%20Burbank%20California&amp;output=embed" height="300" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+<div class="map-details"><a href="https://www.google.com/maps/search/?api=1&amp;query=Stage%2024%20Warner%20Bros.%20Studios%20Burbank%20California" target="_blank" rel="noopener noreferrer">Abrir ubicación ↗</a></div>
+</div>
+<p class="source-note">Consultá las condiciones de visita en <a href="https://www.wbstudiotour.com/" target="_blank" rel="noopener noreferrer">Warner Bros. Studio Tour ↗</a>.</p>
+</aside>
+</div>
+</div>
+</main>
+<footer class="site-footer">
+<div class="container">
+<div class="footer-top">
+<div>
+<p class="site-name">Friends · Siempre en casa.</p>
+<p>Seis amigos. Un lugar al que volver.</p>
+</div>
+<div class="socials" aria-label="Redes sociales">
+<a href="https://www.instagram.com/friends/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+<a href="https://www.youtube.com/@Friends" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+<a href="cafe.html#formulario">Escribinos ↗</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>Proyecto educativo no oficial. Friends y sus personajes pertenecen a sus respectivos titulares. Sin afiliación con Warner Bros. Entertainment.</p>
+<span>© 2026 · Fan site</span>
+</div>
+</div>
+</footer>
+<aside class="global-player" aria-label="Música de Friends">
+<button id="audio-toggle" type="button" aria-pressed="false">
+<span aria-hidden="true">▶</span> Escuchar intro</button>
+<span class="audio-status" role="status">La música la ponés vos.</span>
+<span class="equalizer" aria-hidden="true">
+<i>
+</i>
+<i>
+</i>
+<i>
+</i>
+</span>
+</aside>
+</div>
+<noscript>Activá JavaScript para el carrusel, el mapa seleccionable y la música.</noscript>
+</body>
+</html>

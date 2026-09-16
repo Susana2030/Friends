@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#291f39">
+<title>Quiz | Friends</title>
+<link rel="stylesheet" href="css/estilos.css">
+<script defer src="js/data.js"></script>
+<script defer src="js/hero.js"></script>
+<script defer src="js/gallery.js"></script>
+<script defer src="js/cafe.js"></script>
+<script defer src="js/audio.js"></script>
+<script defer src="js/main.js"></script>
+<script defer src="js/script.js"></script>
+</head>
+<body>
+<div class="app ">
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="site-header">
+<div class="container header-inner">
+<a class="brand" href="index.html" aria-label="Friends, ir al inicio">
+<img src="img/home/friends-logo.png" width="2048" height="800" alt="Friends"/>
+</a>
+<nav id="navegacion" class="navigation " aria-label="Navegación principal">
+<a href="index.html">Inicio</a>
+<a href="personajes.html">Personajes</a>
+<a href="temporadas.html">Temporadas</a>
+<a href="galeria.html">Galería</a>
+<a class="cafe-nav-link" href="cafe.html" aria-label="Central Perk: ¿Tomamos un café?">
+<img src="img/home/central-perk.png" width="1760" height="880" alt="Central Perk">
+</a>
+</nav>
+<button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navegacion">☰</button>
+</div>
+</header>
+<main id="contenido" tabindex="-1">
+<section class="container page-intro"><span class="eyebrow">Un pequeño desafío</span><h1>¿Cuánto sabés de Friends?</h1><form id="friends-quiz" class="contact-form quiz-form"><fieldset data-answer="0"><legend>¿Cómo se llama el café de los amigos?</legend><label><input type="radio" name="question0" value="0" required> Central Perk</label><label><input type="radio" name="question0" value="1" required> Central Park</label><label><input type="radio" name="question0" value="2" required> Monk’s Café</label></fieldset><fieldset data-answer="1"><legend>¿Quién canta “Smelly Cat”?</legend><label><input type="radio" name="question1" value="0" required> Rachel</label><label><input type="radio" name="question1" value="1" required> Phoebe</label><label><input type="radio" name="question1" value="2" required> Monica</label></fieldset><fieldset data-answer="2"><legend>¿Cuántas temporadas tiene la serie?</legend><label><input type="radio" name="question2" value="0" required> Ocho</label><label><input type="radio" name="question2" value="1" required> Nueve</label><label><input type="radio" name="question2" value="2" required> Diez</label></fieldset><button type="submit" class="button">Ver resultado</button><p id="quiz-result" role="status" tabindex="-1"></p></form></section>
+</main>
+<footer class="site-footer">
+<div class="container">
+<div class="footer-top">
+<div>
+<p class="site-name">Friends · Siempre en casa.</p>
+<p>Seis amigos. Un lugar al que volver.</p>
+</div>
+<div class="socials" aria-label="Redes sociales">
+<a href="https://www.instagram.com/friends/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+<a href="https://www.youtube.com/@Friends" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+<a href="cafe.html#formulario">Escribinos ↗</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>Proyecto educativo no oficial. Friends y sus personajes pertenecen a sus respectivos titulares. Sin afiliación con Warner Bros. Entertainment.</p>
+<span>© 2026 · Fan site</span>
+</div>
+</div>
+</footer>
+<aside class="global-player" aria-label="Música de Friends">
+<button id="audio-toggle" type="button" aria-pressed="false">
+<span aria-hidden="true">▶</span> Escuchar intro</button>
+<span class="audio-status" role="status">La música la ponés vos.</span>
+<span class="equalizer" aria-hidden="true">
+<i>
+</i>
+<i>
+</i>
+<i>
+</i>
+</span>
+</aside>
+</div>
+<noscript>Activá JavaScript para el carrusel, el mapa seleccionable y la música.</noscript>
+</body>
+</html>

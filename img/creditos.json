@@ -1,0 +1,50 @@
+[
+  {
+    "person": "Jennifer Aniston",
+    "file": "rachel.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:JenniferAnistonHWoFFeb2012.jpg",
+    "author": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/sharongraphics/\">Angela George</a>",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "person": "Courteney Cox",
+    "file": "monica.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Courteney_Cox_'10_PaleyFest.jpg",
+    "author": "Albert Domasin at <a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/goalbert/\">https://www.flickr.com/photos/goalbert/</a>",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  },
+  {
+    "person": "Lisa Kudrow",
+    "file": "phoebe.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Lisa_Kudrow_2.jpg",
+    "author": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/71284644@N00\">Lan Bui</a>",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  },
+  {
+    "person": "Matt LeBlanc",
+    "file": "joey.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Matt_LeBlanc%2C_Arqiva_British_Academy_Television_Awards%2C_2013.jpg",
+    "author": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/richmgold/\">Richard Goldschmidt</a>, <a rel=\"nofollow\" class=\"external text\" href=\"http://www.piqtured.com\">www.piqtured.com</a>",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  {
+    "person": "Matthew Perry",
+    "file": "chandler.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Matthew_Perry_in_support_of_Awareness_on_Drug_Courts_and_Reduced_Substance_Abuse.jpg",
+    "author": "Valerie Jarrett / @vj44 via X (Twitter)",
+    "license": "Public domain",
+    "licenseUrl": ""
+  },
+  {
+    "person": "David Schwimmer",
+    "file": "ross.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:DavidSchwimmer10TIFF.jpg",
+    "author": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/14277183@N05\">gdcgraphics</a>",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  }
+]
