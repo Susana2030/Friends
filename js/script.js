@@ -43,7 +43,10 @@
     if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { menu(false); toggle.focus(); }
   });
   document.addEventListener('pointerdown', event => { if (!header.contains(event.target)) menu(false); });
-  matchMedia('(min-width: 981px)').addEventListener('change', () => menu(false));
+  matchMedia('(min-width: 900px)').addEventListener('change', () => {
+    menu(false);
+    seasonDropdown.open = false;
+  });
   function mount() {
     pageController = new AbortController();
     dispose = [Friends.initHero, Friends.initGallery, Friends.initCafe, Friends.initMain].map(init => init(main, pageController.signal));

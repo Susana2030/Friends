@@ -199,6 +199,7 @@ body {
   margin: 0;
   font-size: 16px;
   line-height: 1.65;
+  overflow-wrap: anywhere;
 }
 img {
   display: block;
@@ -630,6 +631,18 @@ main:focus {
   width: min(100%, 920px);
   margin: auto;
 }
+.gallery-filters {
+  position: absolute;
+  pointer-events: none;
+}
+.memory-carousel,
+.gallery-stage {
+  background: transparent;
+  border: 0;
+  outline: none;
+  box-shadow: none;
+  border-radius: 0;
+}
 .marco-foto {
   position: relative;
   display: block;
@@ -642,13 +655,15 @@ main:focus {
   width: min(
     calc(100% - 112px),
     760px,
-    max(0px, calc(100svh - var(--header-height) - 160px))
+    max(220px, calc(100svh - var(--header-height) - 160px))
   );
   margin-inline: auto;
   aspect-ratio: 390/388;
-  background: #72539c;
-  border-radius: 20px;
+  background: transparent;
+  border-radius: 0;
   border: 0;
+  outline: none;
+  appearance: none;
   box-shadow: none;
 }
 .frame-art {
@@ -659,38 +674,58 @@ main:focus {
   left: -20%;
   top: -20%;
   object-fit: contain;
+  filter: url(#yellow-frame-only);
   pointer-events: none;
   z-index: 2;
 }
 .memory-window {
   position: absolute;
-  left: 26.76%;
-  top: 20.04%;
-  width: 43.96%;
-  height: 62.58%;
+  /* Hueco de la imagen del marco, escalada al 140% y desplazada -20%. */
+  left: 26.67%;
+  top: 19.33%;
+  width: 44.51%;
+  height: 63.87%;
   background: transparent;
-  border-radius: 3%;
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
   overflow: hidden;
-  z-index: 3;
+  z-index: 1;
   pointer-events: none;
 }
-.marco-foto .memory-window img,
-.marco-foto .memory-slide {
+.peephole-window {
+  position: relative;
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
-  border-radius: inherit;
+  overflow: hidden;
   background: transparent;
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
 }
+.peephole-window img,
 #carousel-image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  position: relative;
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-shadow: none;
+}
+/* Recorta los bordes blancos incorporados en la fotografía del modal. */
+.modal-img[src$="05-grupo-en-sillon.webp"] {
+  clip-path: inset(1.6% 0 0 0.2%);
 }
 .memory-slide {
   animation: photo-in 0.4s ease;
@@ -734,6 +769,7 @@ main:focus {
 }
 .carousel-actions {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 24px;
   margin-block: 10px 24px;
@@ -749,7 +785,7 @@ main:focus {
 }
 .scene-index {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
   gap: 10px;
 }
 .scene-index button {
@@ -799,15 +835,27 @@ main:focus {
   margin: 0;
   pointer-events: none;
 }
+.lightbox,
+.lightbox figure,
+.lightbox .modal-img {
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
 .modal-img {
   width: auto;
   height: auto;
   max-width: 85vw;
   max-height: 85vh;
+  max-height: 85dvh;
   object-fit: contain;
+  object-position: center;
   margin: auto;
   display: block;
-  border-radius: 8px;
+  border-radius: 0;
   pointer-events: auto;
 }
 .lightbox figcaption {
@@ -1026,6 +1074,7 @@ main:focus {
 }
 .form-row {
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
 }
 .field {
@@ -1033,7 +1082,7 @@ main:focus {
   flex-direction: column;
   gap: 7px;
   min-width: 0;
-  flex: 1;
+  flex: 1 1 180px;
   margin-bottom: 20px;
   font-size: 0.8rem;
   font-weight: 650;
@@ -1050,6 +1099,7 @@ main:focus {
   background: var(--cream);
   color: var(--ink);
   font-weight: 400;
+  font-size: 1rem;
 }
 .field textarea {
   resize: vertical;
@@ -1146,7 +1196,7 @@ legend {
     gap: 32px;
   }
 }
-@media (max-width: 980px) {
+@media (width < 900px) {
   :root {
     --header-height: 72px;
   }
@@ -1270,9 +1320,6 @@ legend {
   .page-intro p {
     font-size: 0.9rem;
   }
-  .memory-frame {
-    border-radius: 12px;
-  }
   .carousel-controls {
     gap: 10px;
   }
@@ -1282,9 +1329,6 @@ legend {
   .carousel-controls button {
     width: 44px;
     height: 44px;
-  }
-  .scene-index {
-    grid-template-columns: repeat(2, 1fr);
   }
   .carousel-actions {
     gap: 20px;
@@ -1345,6 +1389,9 @@ legend {
   .form-row {
     flex-direction: column;
     gap: 0;
+  }
+  .form-row .field {
+    flex-basis: auto;
   }
   .character-card,
   .actor-card {
@@ -1498,9 +1545,9 @@ legend {
   min-height: calc(100svh - var(--header-height) - 64px);
 }
 .home-hero .hero-copy h1 {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 1rem + 2vw, 2rem);
   letter-spacing: 0;
-  white-space: nowrap;
+  text-wrap: balance;
 }
 .cafe-heading {
   display: flex;
@@ -1510,7 +1557,7 @@ legend {
 }
 .cafe-heading h1 {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 3.2rem;
+  font-size: clamp(2rem, 1rem + 4vw, 3.2rem);
   font-weight: 700;
   line-height: 1.12;
   letter-spacing: 0;
@@ -1571,7 +1618,7 @@ legend {
 .studio-section address {
   font-size: 0.85rem;
 }
-@media (max-width: 980px) {
+@media (width < 900px) {
   .season-dropdown summary {
     padding: 12px;
   }
@@ -1580,32 +1627,18 @@ legend {
     box-shadow: none;
     margin-inline: 12px;
   }
-  .home-hero .hero-copy h1 {
-    font-size: 1.4rem;
-  }
   .cafe-split {
     gap: 28px;
   }
 }
 @media (max-width: 650px) {
-  .home-hero .hero-copy h1 {
-    font-size: 0.9rem;
-  }
   .cafe-heading {
     flex-direction: column;
     text-align: center;
     gap: 12px;
   }
-  .cafe-heading h1 {
-    font-size: 2rem;
-  }
   .cafe-split {
     grid-template-columns: minmax(0, 1fr);
-  }
-}
-@media (max-width: 360px) {
-  .home-hero .hero-copy h1 {
-    font-size: 0.75rem;
   }
 }
 
@@ -1639,8 +1672,10 @@ legend {
   cursor: zoom-in;
 }
 .memory-frame:focus-visible {
-  outline: 3px solid #875719;
-  outline-offset: 5px;
+  outline: none;
+}
+.memory-frame:focus-visible .frame-art {
+  filter: url(#yellow-frame-only) drop-shadow(0 0 4px white);
 }
 .gallery-stage {
   position: relative;
@@ -1728,7 +1763,7 @@ legend {
     gap: 24px;
   }
 }
-@media (max-width: 980px) {
+@media (width < 900px) {
   .header-inner .menu-toggle {
     margin-left: auto;
   }

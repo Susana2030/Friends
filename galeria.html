@@ -62,6 +62,14 @@
       </header>
       <main id="contenido" tabindex="-1">
         <section class="gallery-page">
+          <svg class="gallery-filters" width="0" height="0" aria-hidden="true" focusable="false">
+            <defs>
+              <filter id="yellow-frame-only" color-interpolation-filters="sRGB">
+                <!-- El amarillo tiene más rojo que azul; el fondo violeta no. -->
+                <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  4 0 -4 0 0" />
+              </filter>
+            </defs>
+          </svg>
           <div class="page-intro centered container">
             <h1>Momentos de amigos</h1>
           </div>
@@ -87,12 +95,14 @@
                   alt=""
                 />
                 <span class="memory-window">
-                  <img
-                    id="carousel-image"
-                    class="memory-slide"
-                    src="img/galeria/01-puerta.webp"
-                    alt="La puerta del departamento de Friends"
-                  />
+                  <span class="peephole-window">
+                    <img
+                      id="carousel-image"
+                      class="memory-slide"
+                      src="img/galeria/01-puerta.webp"
+                      alt="La puerta del departamento de Friends"
+                    />
+                  </span>
                 </span>
               </button>
               <button
