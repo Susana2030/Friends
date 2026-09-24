@@ -1,9 +1,13 @@
 (() => {
   'use strict';
-  const pages = new Set(['index.html', 'personajes.html', 'temporadas.html', 'galeria.html', 'cafe.html', 'contacto.html', 'quiz.html']);
+  const pages = new Set(['index.html', 'personajes.html', 'temporadas.html', 'galeria.html', 'contacto.html', 'quiz.html']);
   const main = document.querySelector('#contenido');
   const header = document.querySelector('.site-header');
   const nav = header.querySelector('.navigation');
+  const measureHeader = () => document.documentElement.style.setProperty('--header-offset', `${Math.ceil(header.getBoundingClientRect().height)}px`);
+  measureHeader();
+  if ('ResizeObserver' in window) new ResizeObserver(measureHeader).observe(header);
+  else window.addEventListener('resize', measureHeader, { passive: true });
   const toggle = header.querySelector('.menu-toggle');
   const seasonLink = nav.querySelector('a[href="temporadas.html"]');
   const seasonDropdown = document.createElement('details');
@@ -33,6 +37,7 @@
   Friends.isInternal = url => url.origin === location.origin && pages.has(pageName(url)) && url.pathname.slice(0, url.pathname.lastIndexOf('/') + 1) === location.pathname.slice(0, location.pathname.lastIndexOf('/') + 1);
   let pageController, dispose = [], requestController;
   function menu(open) {
+    if ((toggle.getAttribute('aria-expanded') === 'true') !== open) Friends.audioManager?.play('door');
     nav.classList.toggle('is-open', open);
     toggle.setAttribute('aria-expanded', String(open));
     toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
@@ -49,8 +54,8 @@
   });
   function mount() {
     pageController = new AbortController();
-    dispose = [Friends.initHero, Friends.initGallery, Friends.initCafe, Friends.initMain].map(init => init(main, pageController.signal));
-    const page = pageName(new URL(location.href)).replace('contacto.html', 'cafe.html');
+    dispose = [Friends.initHero, Friends.initGallery, Friends.initQuiz, Friends.initContacto, Friends.initPersonajes, Friends.initMain, Friends.initVisualEffects].map(init => init(main, pageController.signal));
+    const page = pageName(new URL(location.href));
     document.querySelector('.app').classList.toggle('home-page', page === 'index.html');
     nav.querySelectorAll('a').forEach(link => {
       const url = new URL(link.href);
@@ -65,7 +70,8 @@
   function scrollToContent(focus) {
     let anchor;
     try { anchor = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch { /* Ignore malformed anchors. */ }
-    if (anchor) anchor.scrollIntoView();
+    if (anchor?.matches('.season-card')) anchor = main.querySelector('.season-browser') || anchor;
+    if (anchor) anchor.scrollIntoView({ block: 'start' });
     else { window.scrollTo({ top: 0, behavior: 'instant' }); if (focus) main.focus({ preventScroll: true }); }
   }
   async function navigate(url, push = true) {
@@ -106,5 +112,5 @@
     event.preventDefault(); navigate(url);
   });
   window.addEventListener('popstate', () => navigate(new URL(location.href), false));
-  Friends.initAudio(); mount(); scrollToContent(false);
+  Friends.initAudioManager(); Friends.initAudio(); mount(); scrollToContent(false);
 })();

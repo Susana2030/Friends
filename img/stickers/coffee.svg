@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 170">
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path d="M43 53c-14-14 12-18 0-31m29 31c-14-14 12-18 0-31m29 31c-14-14 12-18 0-31" fill="none" stroke="#9275aa" stroke-width="4"/>
+    <text x="80" y="17" text-anchor="middle" font-family="Georgia,serif" font-size="16" font-style="italic" fill="#76558d">PIVOT!</text>
+    <path d="M116 75h11c25 0 25 34 0 34h-12" fill="none" stroke="#477768" stroke-width="10"/>
+    <path d="M26 65h92v47c0 28-92 28-92 0z" fill="#fdf8e9" stroke="#477768" stroke-width="5"/>
+    <ellipse cx="72" cy="65" rx="46" ry="10" fill="#754e36" stroke="#477768" stroke-width="4"/>
+    <ellipse cx="72" cy="98" rx="33" ry="17" fill="#477768"/>
+    <text x="72" y="96" text-anchor="middle" font-family="Georgia,serif" font-size="9" font-weight="bold" fill="#fff8e9">CENTRAL</text>
+    <text x="72" y="108" text-anchor="middle" font-family="Georgia,serif" font-size="12" font-weight="bold" fill="#ffd05d">PERK</text>
+    <path d="M14 142q59 22 120 0" fill="none" stroke="#9275aa" stroke-width="5"/>
+  </g>
+</svg>

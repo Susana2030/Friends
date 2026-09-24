@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 170">
+  <g fill="none" stroke="#614861" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <g transform="translate(12 12) rotate(-16 48 55)">
+      <path d="M47 18v96c0 14 20 14 20 0"/>
+      <path d="M4 63Q10 18 47 18q38 0 44 45-13-12-22 0-12-12-22 0-12-12-22 0Q14 51 4 63z" fill="#e26660"/>
+      <path d="M25 63q1-33 22-45 20 12 22 45"/>
+    </g>
+    <g transform="translate(81 8) rotate(18 48 55)">
+      <path d="M47 18v96c0 14 20 14 20 0"/>
+      <path d="M4 63Q10 18 47 18q38 0 44 45-13-12-22 0-12-12-22 0-12-12-22 0Q14 51 4 63z" fill="#70a6ca"/>
+      <path d="M25 63q1-33 22-45 20 12 22 45"/>
+    </g>
+    <g transform="translate(43 48)">
+      <path d="M47 18v88c0 14 20 14 20 0"/>
+      <path d="M4 63Q10 18 47 18q38 0 44 45-13-12-22 0-12-12-22 0-12-12-22 0Q14 51 4 63z" fill="#ffd45c"/>
+      <path d="M25 63q1-33 22-45 20 12 22 45"/>
+    </g>
+  </g>
+</svg>

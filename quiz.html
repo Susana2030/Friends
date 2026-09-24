@@ -9,25 +9,30 @@
 <script defer src="js/data.js"></script>
 <script defer src="js/hero.js"></script>
 <script defer src="js/gallery.js"></script>
-<script defer src="js/cafe.js"></script>
+<script defer src="js/audioManager.js"></script>
 <script defer src="js/audio.js"></script>
+<script defer src="js/quiz.js"></script>
+<script defer src="js/contacto.js"></script>
+<script defer src="js/personajes.js"></script>
 <script defer src="js/main.js"></script>
+<script defer src="js/visualEffects.js"></script>
 <script defer src="js/script.js"></script>
 </head>
 <body>
-<div class="app ">
+<div class="app">
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 <header class="site-header">
 <div class="container header-inner">
 <a class="brand" href="index.html" aria-label="Friends, ir al inicio">
 <img src="img/home/friends-logo.png" width="2048" height="800" alt="Friends"/>
 </a>
-<nav id="navegacion" class="navigation " aria-label="Navegación principal">
+<nav id="navegacion" class="navigation" aria-label="Navegación principal">
 <a href="index.html">Inicio</a>
 <a href="personajes.html">Personajes</a>
 <a href="temporadas.html">Temporadas</a>
 <a href="galeria.html">Galería</a>
-<a class="cafe-nav-link" href="cafe.html" aria-label="Central Perk: ¿Tomamos un café?">
+<a href="quiz.html" aria-current="page">Quiz</a>
+<a class="cafe-nav-link" href="contacto.html#formulario" aria-label="Central Perk: contacto y reservas">
 <img src="img/home/central-perk.png" width="1760" height="880" alt="Central Perk">
 </a>
 </nav>
@@ -35,8 +40,26 @@
 </div>
 </header>
 <main id="contenido" tabindex="-1">
-<section class="container page-intro"><span class="eyebrow">Un pequeño desafío</span><h1>¿Cuánto sabés de Friends?</h1><form id="friends-quiz" class="contact-form quiz-form"><fieldset data-answer="0"><legend>¿Cómo se llama el café de los amigos?</legend><label><input type="radio" name="question0" value="0" required> Central Perk</label><label><input type="radio" name="question0" value="1" required> Central Park</label><label><input type="radio" name="question0" value="2" required> Monk’s Café</label></fieldset><fieldset data-answer="1"><legend>¿Quién canta “Smelly Cat”?</legend><label><input type="radio" name="question1" value="0" required> Rachel</label><label><input type="radio" name="question1" value="1" required> Phoebe</label><label><input type="radio" name="question1" value="2" required> Monica</label></fieldset><fieldset data-answer="2"><legend>¿Cuántas temporadas tiene la serie?</legend><label><input type="radio" name="question2" value="0" required> Ocho</label><label><input type="radio" name="question2" value="1" required> Nueve</label><label><input type="radio" name="question2" value="2" required> Diez</label></fieldset><button type="submit" class="button">Ver resultado</button><p id="quiz-result" role="status" tabindex="-1"></p></form></section>
+
+<div class="theme-decorations" aria-hidden="true">
+<img class="theme-sticker sticker-umbrellas" src="img/stickers/umbrellas.svg" alt="" width="180" height="180" loading="lazy" decoding="async">
+<img class="theme-sticker sticker-frame" src="img/stickers/frame.svg" alt="" width="180" height="180" loading="lazy" decoding="async">
+<img class="theme-sticker sticker-taxi" src="img/stickers/taxi.svg" alt="" width="180" height="180" loading="lazy" decoding="async">
+<img class="theme-sticker sticker-coffee" src="img/stickers/coffee.svg" alt="" width="180" height="180" loading="lazy" decoding="async">
+<img class="theme-sticker sticker-lobster" src="img/stickers/lobster.svg" alt="" width="180" height="180" loading="lazy" decoding="async">
+</div>
+<section class="container page-intro"><span class="eyebrow">Un pequeño desafío</span><h1>¿Cuánto sabés de Friends?</h1><p class="quiz-help">Elegí una opción para pasar a la siguiente pregunta.</p><noscript>Activá JavaScript para jugar las ocho preguntas.</noscript><form id="friends-quiz" class="quiz-form">
+<p id="quiz-progress">Pregunta 1 de 8</p><progress max="8" value="0" aria-label="Preguntas respondidas"></progress><fieldset data-answer="0"><legend>¿Cómo se llama el café de los amigos?</legend><label><input type="radio" name="question0" value="0" required> Central Perk</label><label><input type="radio" name="question0" value="1" required> Central Park</label><label><input type="radio" name="question0" value="2" required> Monk’s Café</label></fieldset><fieldset data-answer="1" hidden disabled><legend>¿Quién canta “Smelly Cat”?</legend><label><input type="radio" name="question1" value="0" required> Rachel</label><label><input type="radio" name="question1" value="1" required> Phoebe</label><label><input type="radio" name="question1" value="2" required> Monica</label></fieldset><fieldset data-answer="2" hidden disabled><legend>¿Cuántas temporadas tiene la serie?</legend><label><input type="radio" name="question2" value="0" required> Ocho</label><label><input type="radio" name="question2" value="1" required> Nueve</label><label><input type="radio" name="question2" value="2" required> Diez</label></fieldset><fieldset data-answer="0" hidden disabled><legend>¿Cuál es la profesión de Ross?</legend><label><input type="radio" name="question3" value="0" required> Paleontólogo</label><label><input type="radio" name="question3" value="1" required> Chef</label><label><input type="radio" name="question3" value="2" required> Actor</label></fieldset><fieldset data-answer="1" hidden disabled><legend>¿Quién interpreta al doctor Drake Ramoray?</legend><label><input type="radio" name="question4" value="0" required> Chandler</label><label><input type="radio" name="question4" value="1" required> Joey</label><label><input type="radio" name="question4" value="2" required> Ross</label></fieldset><fieldset data-answer="2" hidden disabled><legend>¿Cómo se llama la hermana gemela de Phoebe?</legend><label><input type="radio" name="question5" value="0" required> Rachel</label><label><input type="radio" name="question5" value="1" required> Monica</label><label><input type="radio" name="question5" value="2" required> Ursula</label></fieldset><fieldset data-answer="0" hidden disabled><legend>¿De qué color es el sillón de Central Perk?</legend><label><input type="radio" name="question6" value="0" required> Naranja</label><label><input type="radio" name="question6" value="1" required> Azul</label><label><input type="radio" name="question6" value="2" required> Verde</label></fieldset><fieldset data-answer="1" hidden disabled><legend>¿Quién es la hermana de Ross?</legend><label><input type="radio" name="question7" value="0" required> Phoebe</label><label><input type="radio" name="question7" value="1" required> Monica</label><label><input type="radio" name="question7" value="2" required> Rachel</label></fieldset><p id="quiz-feedback" class="quiz-feedback" role="status" aria-atomic="true"></p><p id="quiz-result" role="status" tabindex="-1" hidden></p><button id="quiz-restart" type="button" class="button" hidden>Volver a jugar</button></form></section>
 </main>
+<section class="audio-banner container" aria-label="Un momento en Central Perk">
+<div class="audio-copy"><h2>Un caf&#233; entre amigos</h2><p>La intro de siempre, cuando vos quieras.</p></div>
+<div class="audio-controls">
+<button id="audio-toggle" class="button intro-player" type="button" aria-pressed="false" aria-label="Reproducir intro de Friends"><span class="player-symbol" aria-hidden="true">&#9654;</span> <span class="player-text">Escuchar intro</span></button>
+<span class="audio-status" role="status">Reproducci&#243;n opcional. Pod&#233;s pausarla cuando quieras.</span>
+</div>
+<a class="button booking-button" href="contacto.html#formulario"><span aria-hidden="true">&#128715;&#65039;</span> Book a Table</a>
+<div class="sound-controls"><span>Efectos de sonido</span></div>
+</section>
 <footer class="site-footer">
 <div class="container">
 <div class="footer-top">
@@ -47,29 +70,16 @@
 <div class="socials" aria-label="Redes sociales">
 <a href="https://www.instagram.com/friends/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
 <a href="https://www.youtube.com/@Friends" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
-<a href="cafe.html#formulario">Escribinos ↗</a>
+<a href="contacto.html#formulario">Escribinos ↗</a>
 </div>
 </div>
 <div class="footer-bottom">
 <p>Proyecto educativo no oficial. Friends y sus personajes pertenecen a sus respectivos titulares. Sin afiliación con Warner Bros. Entertainment.</p>
-<span>© 2026 · Fan site</span>
+<span>© <span data-current-year>2026</span> · Fan site</span>
 </div>
 </div>
 </footer>
-<aside class="global-player" aria-label="Música de Friends">
-<button id="audio-toggle" type="button" aria-pressed="false">
-<span aria-hidden="true">▶</span> Escuchar intro</button>
-<span class="audio-status" role="status">La música la ponés vos.</span>
-<span class="equalizer" aria-hidden="true">
-<i>
-</i>
-<i>
-</i>
-<i>
-</i>
-</span>
-</aside>
 </div>
-<noscript>Activá JavaScript para el carrusel, el mapa seleccionable y la música.</noscript>
+<noscript>Activá JavaScript para usar los controles interactivos.</noscript>
 </body>
 </html>

@@ -6,13 +6,17 @@
     <meta name="theme-color" content="#291f39" />
     <title>Galería | Friends</title>
     <link rel="stylesheet" href="css/estilos.css" />
-    <script defer src="js/data.js"></script>
-    <script defer src="js/hero.js"></script>
-    <script defer src="js/gallery.js"></script>
-    <script defer src="js/cafe.js"></script>
-    <script defer src="js/audio.js"></script>
-    <script defer src="js/main.js"></script>
-    <script defer src="js/script.js"></script>
+<script defer src="js/data.js"></script>
+<script defer src="js/hero.js"></script>
+<script defer src="js/gallery.js"></script>
+<script defer src="js/audioManager.js"></script>
+<script defer src="js/audio.js"></script>
+<script defer src="js/quiz.js"></script>
+<script defer src="js/contacto.js"></script>
+<script defer src="js/personajes.js"></script>
+<script defer src="js/main.js"></script>
+<script defer src="js/visualEffects.js"></script>
+<script defer src="js/script.js"></script>
   </head>
   <body>
     <div class="app">
@@ -36,11 +40,8 @@
             <a href="personajes.html">Personajes</a>
             <a href="temporadas.html">Temporadas</a>
             <a href="galeria.html" aria-current="page">Galería</a>
-            <a
-              class="cafe-nav-link"
-              href="cafe.html"
-              aria-label="Central Perk: ¿Tomamos un café?"
-            >
+            <a href="quiz.html">Quiz</a>
+<a class="cafe-nav-link" href="contacto.html#formulario" aria-label="Central Perk: contacto y reservas">
               <img
                 src="img/home/central-perk.png"
                 width="1760"
@@ -61,11 +62,19 @@
         </div>
       </header>
       <main id="contenido" tabindex="-1">
+
+<div class="theme-decorations" aria-hidden="true">
+<img class="theme-sticker sticker-umbrellas" src="img/stickers/umbrellas.svg" alt="" width="180" height="180" loading="lazy" decoding="async">
+<img class="theme-sticker sticker-frame" src="img/stickers/frame.svg" alt="" width="180" height="180" loading="lazy" decoding="async">
+<img class="theme-sticker sticker-taxi" src="img/stickers/taxi.svg" alt="" width="180" height="180" loading="lazy" decoding="async">
+<img class="theme-sticker sticker-coffee" src="img/stickers/coffee.svg" alt="" width="180" height="180" loading="lazy" decoding="async">
+<img class="theme-sticker sticker-lobster" src="img/stickers/lobster.svg" alt="" width="180" height="180" loading="lazy" decoding="async">
+</div>
         <section class="gallery-page">
           <svg class="gallery-filters" width="0" height="0" aria-hidden="true" focusable="false">
             <defs>
               <filter id="yellow-frame-only" color-interpolation-filters="sRGB">
-                <!-- El amarillo tiene más rojo que azul; el fondo violeta no. -->
+
                 <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  4 0 -4 0 0" />
               </filter>
             </defs>
@@ -80,7 +89,8 @@
             aria-label="Seis recuerdos de Friends"
             tabindex="0"
           >
-            <div class="gallery-stage">
+            <div class="gallery-stage gallery-featured-item">
+              <span class="gallery-featured-badge">&#9733; Momento Ic&#243;nico</span>
               <button
                 class="memory-frame marco-foto"
                 type="button"
@@ -168,11 +178,16 @@
               ←
             </button>
             <figure>
-              <img
-                class="lightbox-slide modal-img"
-                src="img/galeria/01-puerta.webp"
-                alt="La puerta del departamento de Friends"
-              />
+              <div class="lightbox-frame">
+                <img class="frame-art" src="img/galeria/marco-amarillo-violeta.webp" alt="" width="390" height="388" aria-hidden="true">
+                <div class="memory-window">
+                  <img
+                    class="lightbox-slide modal-img"
+                    src="img/galeria/01-puerta.webp"
+                    alt="La puerta del departamento de Friends"
+                    />
+                </div>
+              </div>
               <figcaption aria-live="polite">La puerta</figcaption>
             </figure>
             <button
@@ -185,7 +200,16 @@
           </dialog>
         </section>
       </main>
-      <footer class="site-footer">
+      <section class="audio-banner container" aria-label="Un momento en Central Perk">
+<div class="audio-copy"><h2>Un caf&#233; entre amigos</h2><p>La intro de siempre, cuando vos quieras.</p></div>
+<div class="audio-controls">
+<button id="audio-toggle" class="button intro-player" type="button" aria-pressed="false" aria-label="Reproducir intro de Friends"><span class="player-symbol" aria-hidden="true">&#9654;</span> <span class="player-text">Escuchar intro</span></button>
+<span class="audio-status" role="status">Reproducci&#243;n opcional. Pod&#233;s pausarla cuando quieras.</span>
+</div>
+<a class="button booking-button" href="contacto.html#formulario"><span aria-hidden="true">&#128715;&#65039;</span> Book a Table</a>
+<div class="sound-controls"><span>Efectos de sonido</span></div>
+</section>
+<footer class="site-footer">
         <div class="container">
           <div class="footer-top">
             <div>
@@ -205,7 +229,7 @@
                 rel="noopener noreferrer"
                 >YouTube ↗</a
               >
-              <a href="cafe.html#formulario">Escribinos ↗</a>
+              <a href="contacto.html#formulario">Escribinos ↗</a>
             </div>
           </div>
           <div class="footer-bottom">
@@ -214,22 +238,11 @@
               a sus respectivos titulares. Sin afiliación con Warner Bros.
               Entertainment.
             </p>
-            <span>© 2026 · Fan site</span>
+            <span>© <span data-current-year>2026</span> · Fan site</span>
           </div>
         </div>
       </footer>
-      <aside class="global-player" aria-label="Música de Friends">
-        <button id="audio-toggle" type="button" aria-pressed="false">
-          <span aria-hidden="true">▶</span> Escuchar intro
-        </button>
-        <span class="audio-status" role="status">La música la ponés vos.</span>
-        <span class="equalizer" aria-hidden="true">
-          <i> </i>
-          <i> </i>
-          <i> </i>
-        </span>
-      </aside>
-    </div>
+          </div>
     <noscript
       >Activá JavaScript para el carrusel, el mapa seleccionable y la
       música.</noscript

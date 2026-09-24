@@ -1,4 +1,5 @@
 Friends.initMain = function (main, signal) {
+  document.querySelectorAll('[data-current-year]').forEach(node => { node.textContent = String(new Date().getFullYear()); });
   const select = main.querySelector('#season-select');
   if (select) {
     const seasons = [...main.querySelectorAll('.season-card')];
@@ -17,18 +18,10 @@ Friends.initMain = function (main, signal) {
     showSeason(location.hash.slice(1) || select.value);
     select.addEventListener('change', () => {
       showSeason(select.value);
+      main.querySelector('.season-browser').scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
       if (location.protocol !== 'file:') history.replaceState(null, '', location.pathname + location.search + '#' + select.value);
     }, { signal });
     window.addEventListener('hashchange', () => showSeason(location.hash.slice(1)), { signal });
   }
-  const quiz = main.querySelector('#friends-quiz');
-  if (quiz) quiz.addEventListener('submit', event => {
-    event.preventDefault();
-    const questions = [...quiz.querySelectorAll('fieldset')];
-    const score = questions.filter(question => question.querySelector('input:checked')?.value === question.dataset.answer).length;
-    const result = quiz.querySelector('#quiz-result');
-    result.textContent = `Acertaste ${score} de ${questions.length}. ${score === questions.length ? '¡Conocés muy bien a estos amigos!' : 'Podés cambiar tus respuestas y volver a intentar.'}`;
-    result.focus();
-  }, { signal });
   return () => {};
 };

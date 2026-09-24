@@ -12,9 +12,11 @@ Friends.initGallery = function (main, signal) {
     ".carousel-actions button",
   );
   const frame = main.querySelector(".memory-frame");
+  const stage = main.querySelector('.gallery-stage');
+  const featuredBadge = stage.querySelector('.gallery-featured-badge');
   let returnFocus = opener;
   let current = 0,
-    automatic = !reduced.matches,
+    automatic = false,
     hovered = false;
   let rendered = false;
   const on = (element, type, listener) =>
@@ -22,12 +24,45 @@ Friends.initGallery = function (main, signal) {
       if (type === "click") e.stopPropagation();
       listener(e);
     }, { signal });
-  scenes.forEach((scene) => {
-    const preloaded = new Image();
-    preloaded.src = scene.src || `img/galeria/${scene.file}`;
+  // Las mismas escenas alimentan las miniaturas y el visor.
+  buttons.forEach((button, index) => {
+    const thumbnail = document.createElement('img');
+    thumbnail.src = scenes[index].src;
+    thumbnail.alt = '';
+    thumbnail.loading = 'lazy';
+    thumbnail.width = 320;
+    thumbnail.height = 200;
+    const crop = document.createElement('span');
+    crop.className = 'scene-thumbnail';
+    crop.append(thumbnail);
+    button.prepend(crop);
+    if (index === 0) {
+      button.classList.add('gallery-featured-item');
+      const badge = document.createElement('span');
+      badge.className = 'gallery-featured-badge';
+      badge.textContent = '★ Momento Icónico';
+      button.append(badge);
+    }
+    on(thumbnail, 'error', () => { thumbnail.hidden = true; });
   });
-  function render() {
+  const placeholder = document.createElement('div');
+  placeholder.className = 'memory-placeholder';
+  placeholder.hidden = true;
+  placeholder.setAttribute('role', 'img');
+  image.after(placeholder);
+  const largePlaceholder = placeholder.cloneNode();
+  large.after(largePlaceholder);
+  [[image, placeholder], [large, largePlaceholder]].forEach(([photo, fallback]) => {
+    on(photo, 'error', () => {
+      photo.hidden = true;
+      fallback.hidden = false;
+    });
+  });
+function render() {
     const scene = scenes[current];
+    // El distintivo pertenece a la puerta, no a las otras fotos del carrusel.
+    stage.classList.toggle('gallery-featured-item', current === 0);
+    featuredBadge.hidden = current !== 0;
     const src = scene.src || `img/galeria/${scene.file}`;
     image.classList.toggle("fade-out", rendered);
     large.classList.toggle("fade-out", rendered);
@@ -36,6 +71,12 @@ Friends.initGallery = function (main, signal) {
       large.getBoundingClientRect();
     }
     image.src = large.src = src;
+    image.hidden = large.hidden = false;
+    placeholder.hidden = largePlaceholder.hidden = true;
+    [placeholder, largePlaceholder].forEach(fallback => {
+      fallback.textContent = '☕ ' + scene.title;
+      fallback.setAttribute('aria-label', scene.title + ' · Imagen no disponible');
+    });
     image.alt = large.alt = scene.alt;
     image.classList.remove("fade-out");
     large.classList.remove("fade-out");
@@ -53,7 +94,7 @@ Friends.initGallery = function (main, signal) {
   }
   function select(index, manual = true) {
     current = (index + scenes.length) % scenes.length;
-    if (manual) automatic = false;
+    if (manual) { automatic = false; Friends.audioManager?.play('click'); }
     render();
   }
   on(main.querySelector('[aria-label="Foto anterior"]'), "click", () =>
@@ -78,6 +119,7 @@ Friends.initGallery = function (main, signal) {
     automatic = false;
     render();
     dialog.showModal();
+    Friends.audioManager?.play('door');
     document.body.classList.add("modal-open");
   };
   on(opener, "click", openLightbox);
@@ -88,6 +130,7 @@ Friends.initGallery = function (main, signal) {
   });
   on(dialog, "close", () => {
     document.body.classList.remove("modal-open");
+    Friends.audioManager?.play('door');
     if (returnFocus.isConnected) returnFocus.focus();
   });
   const keyboard = (event) => {

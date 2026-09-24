@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 170">
+  <g fill="#d87966" stroke="#9b4b46" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M72 78L49 62M108 78l23-16M72 95l-26 7m62-7 26 7M73 110l-22 16m56-16 22 16" fill="none"/>
+    <path d="M51 68C22 57 25 25 39 23l6 18 10-14c18 16 18 32-4 41zm78 0c29-11 26-43 12-45l-6 18-10-14c-18 16-18 32 4 41z"/>
+    <ellipse cx="90" cy="94" rx="22" ry="37"/>
+    <path d="M80 66L70 43m30 23 10-23" fill="none"/>
+    <path d="M77 122l-10 17 23-4 23 4-10-17z"/>
+    <path d="M71 88h38m-37 13h36m-32 13h28" fill="none" stroke="#f6c0a4"/>
+  </g>
+  <circle cx="82" cy="73" r="3" fill="#443148"/><circle cx="98" cy="73" r="3" fill="#443148"/>
+  <text x="90" y="160" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="15" fill="#76558d">You're my lobster</text>
+</svg>

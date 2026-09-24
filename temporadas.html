@@ -9,25 +9,30 @@
 <script defer src="js/data.js"></script>
 <script defer src="js/hero.js"></script>
 <script defer src="js/gallery.js"></script>
-<script defer src="js/cafe.js"></script>
+<script defer src="js/audioManager.js"></script>
 <script defer src="js/audio.js"></script>
+<script defer src="js/quiz.js"></script>
+<script defer src="js/contacto.js"></script>
+<script defer src="js/personajes.js"></script>
 <script defer src="js/main.js"></script>
+<script defer src="js/visualEffects.js"></script>
 <script defer src="js/script.js"></script>
 </head>
 <body>
-<div class="app ">
+<div class="app">
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 <header class="site-header">
 <div class="container header-inner">
 <a class="brand" href="index.html" aria-label="Friends, ir al inicio">
 <img src="img/home/friends-logo.png" width="2048" height="800" alt="Friends"/>
 </a>
-<nav id="navegacion" class="navigation " aria-label="Navegación principal">
+<nav id="navegacion" class="navigation" aria-label="Navegación principal">
 <a href="index.html">Inicio</a>
 <a href="personajes.html">Personajes</a>
 <a href="temporadas.html" aria-current="page">Temporadas</a>
 <a href="galeria.html">Galería</a>
-<a class="cafe-nav-link" href="cafe.html" aria-label="Central Perk: ¿Tomamos un café?">
+<a href="quiz.html">Quiz</a>
+<a class="cafe-nav-link" href="contacto.html#formulario" aria-label="Central Perk: contacto y reservas">
 <img src="img/home/central-perk.png" width="1760" height="880" alt="Central Perk">
 </a>
 </nav>
@@ -35,249 +40,85 @@
 </div>
 </header>
 <main id="contenido" tabindex="-1">
+
+<div class="theme-decorations" aria-hidden="true">
+<img class="theme-sticker sticker-umbrellas" src="img/stickers/umbrellas.svg" alt="" width="180" height="180" loading="lazy" decoding="async">
+<img class="theme-sticker sticker-frame" src="img/stickers/frame.svg" alt="" width="180" height="180" loading="lazy" decoding="async">
+<img class="theme-sticker sticker-taxi" src="img/stickers/taxi.svg" alt="" width="180" height="180" loading="lazy" decoding="async">
+<img class="theme-sticker sticker-coffee" src="img/stickers/coffee.svg" alt="" width="180" height="180" loading="lazy" decoding="async">
+<img class="theme-sticker sticker-lobster" src="img/stickers/lobster.svg" alt="" width="180" height="180" loading="lazy" decoding="async">
+</div>
 <div class="container">
-<div class="page-intro">
-<span class="eyebrow">1994 — 2004</span>
-<h1>Diez temporadas.<br/>Mucho por recordar.</h1>
-<p>De la primera visita de Rachel a Central Perk a la última llave sobre la mesa. Elegí dónde volver a empezar.</p>
+<div class="page-intro season-intro">
+<span class="season-icon" aria-hidden="true"><span class="cup-steam"></span><span class="cup-steam"></span><span class="cup-steam"></span>&#9749;</span>
+<h1>Temporadas</h1>
 </div>
-<div class="season-filter"><label for="season-select">Elegí una temporada</label><select id="season-select" aria-controls="season-list"><option value="temporada1">Temporada 1</option><option value="temporada2">Temporada 2</option><option value="temporada3">Temporada 3</option><option value="temporada4">Temporada 4</option><option value="temporada5">Temporada 5</option><option value="temporada6">Temporada 6</option><option value="temporada7">Temporada 7</option><option value="temporada8">Temporada 8</option><option value="temporada9">Temporada 9</option><option value="temporada10">Temporada 10</option></select><p id="season-status" class="small" role="status">Mostrando temporada 1 de 10.</p></div>
-<p class="notice">Esta guía contiene spoilers de las diez temporadas.</p>
+<div class="season-browser" id="season-browser">
+<div class="season-filter"><label for="season-select">Elegí una temporada</label><select id="season-select" aria-controls="season-list"><option value="temporada1">Temporada 1</option><option value="temporada2">Temporada 2</option><option value="temporada3">Temporada 3</option><option value="temporada4">Temporada 4</option><option value="temporada5">Temporada 5</option><option value="temporada6">Temporada 6</option><option value="temporada7">Temporada 7</option><option value="temporada8">Temporada 8</option><option value="temporada9">Temporada 9</option><option value="temporada10">Temporada 10</option></select><p id="season-status" class="sr-only" role="status">Explorá las diez temporadas.</p></div>
 <section id="season-list" class="season-list" aria-label="Las diez temporadas">
-<article class="season-card" id="temporada1">
-<div class="season-copy">
-<span class="season-number" aria-hidden="true">01</span>
-<span class="eyebrow">Temporada 1 · 1994–1995</span>
-<h3>El comienzo de todo</h3>
-<p>Rachel llega a Nueva York y se reencuentra con Monica. En el café y los departamentos conocemos a los seis amigos que van a compartirlo todo.</p>
-<ul>
-<li>Rachel empieza a trabajar en Central Perk.</li>
-<li>Nace Ben, el hijo de Ross.</li>
-</ul>
-<h4>Para volver a ver</h4>
-<p class="episode-list">The One with the Blackout<br/>The One Where Rachel Finds Out</p>
-</div>
-<figure class="season-media">
-<div class="season-video">
-<img src="img/temporadas/temporada-1.jpg" alt="Temporada 1: Momentos del grupo" width="1280" height="720" loading="lazy">
-</div>
-<figcaption>
-<p>Temporada 1: Momentos del grupo</p>
-<a class="button season-video-link" href="https://www.youtube.com/watch?v=QdQ58BbGRsA" target="_blank" rel="noopener noreferrer">Ver adelanto oficial ↗</a>
-</figcaption>
-</figure>
+<article class="season-card" id="temporada1" aria-labelledby="season-title-1">
+<div class="season-copy"><span class="eyebrow">Temporada 1</span><h2 id="season-title-1">El comienzo de todo</h2><p class="season-summary">Rachel empieza de cero; nace una amistad para siempre.</p>
+<a class="season-video-link" href="https://www.youtube.com/watch?v=QdQ58BbGRsA" target="_blank" rel="noopener noreferrer" aria-label="Ver temporada 1 en YouTube (abre en otra pesta&#241;a)"><span aria-hidden="true">&#9654;</span> Ver en YouTube <span aria-hidden="true">&#8599;</span></a></div>
+<figure class="season-media"><img src="img/temporadas/temporada-1.jpg" alt="Momentos de la temporada 1" width="1280" height="720" loading="eager" decoding="async"></figure>
 </article>
-<article class="season-card" id="temporada2" hidden>
-<div class="season-copy">
-<span class="season-number" aria-hidden="true">02</span>
-<span class="eyebrow">Temporada 2 · 1995–1996</span>
-<h3>Entre cafés y primeros besos</h3>
-<p>Los sentimientos de Ross y Rachel pasan al centro de la historia. El grupo afronta nuevas relaciones y Joey encuentra una oportunidad importante como actor.</p>
-<ul>
-<li>Ross y Rachel dan un paso decisivo.</li>
-<li>Joey interpreta al doctor Drake Ramoray.</li>
-</ul>
-<h4>Para volver a ver</h4>
-<p class="episode-list">The One with the Prom Video<br/>The One Where Ross and Rachel… You Know</p>
-</div>
-<figure class="season-media">
-<div class="season-video">
-<img src="img/temporadas/temporada-2.jpg" alt="Temporada 2: Momentos del grupo" width="1280" height="720" loading="lazy">
-</div>
-<figcaption>
-<p>Temporada 2: Momentos del grupo</p>
-<a class="button season-video-link" href="https://www.youtube.com/watch?v=eC-OF6C3T28" target="_blank" rel="noopener noreferrer">Ver adelanto oficial ↗</a>
-</figcaption>
-</figure>
+<article class="season-card" id="temporada2" aria-labelledby="season-title-2">
+<div class="season-copy"><span class="eyebrow">Temporada 2</span><h2 id="season-title-2">Entre cafés y primeros besos</h2><p class="season-summary">Ross y Rachel se acercan. Joey vive su gran oportunidad.</p>
+<a class="season-video-link" href="https://www.youtube.com/watch?v=eC-OF6C3T28" target="_blank" rel="noopener noreferrer" aria-label="Ver temporada 2 en YouTube (abre en otra pesta&#241;a)"><span aria-hidden="true">&#9654;</span> Ver en YouTube <span aria-hidden="true">&#8599;</span></a></div>
+<figure class="season-media"><img src="img/temporadas/temporada-2.jpg" alt="Momentos de la temporada 2" width="1280" height="720" loading="lazy" decoding="async"></figure>
 </article>
-<article class="season-card" id="temporada3" hidden>
-<div class="season-copy">
-<span class="season-number" aria-hidden="true">03</span>
-<span class="eyebrow">Temporada 3 · 1996–1997</span>
-<h3>Estábamos en un descanso</h3>
-<p>La nueva carrera de Rachel y los celos de Ross ponen a prueba su relación. Monica busca su camino y una peculiar pareja de mascotas llega al departamento de los chicos.</p>
-<ul>
-<li>La ruptura de Ross y Rachel.</li>
-<li>Joey y Chandler adoptan un pollito y un pato.</li>
-</ul>
-<h4>Para volver a ver</h4>
-<p class="episode-list">The One Where No One’s Ready<br/>The One with the Morning After</p>
-</div>
-<figure class="season-media">
-<div class="season-video">
-<img src="img/temporadas/temporada-3.jpg" alt="Temporada 3: Momentos del grupo" width="1280" height="720" loading="lazy">
-</div>
-<figcaption>
-<p>Temporada 3: Momentos del grupo</p>
-<a class="button season-video-link" href="https://www.youtube.com/watch?v=6nVAQaiLNkY" target="_blank" rel="noopener noreferrer">Ver adelanto oficial ↗</a>
-</figcaption>
-</figure>
+<article class="season-card" id="temporada3" aria-labelledby="season-title-3">
+<div class="season-copy"><span class="eyebrow">Temporada 3</span><h2 id="season-title-3">Estábamos en un descanso</h2><p class="season-summary">Un descanso cambia la historia de Ross y Rachel.</p>
+<a class="season-video-link" href="https://www.youtube.com/watch?v=6nVAQaiLNkY" target="_blank" rel="noopener noreferrer" aria-label="Ver temporada 3 en YouTube (abre en otra pesta&#241;a)"><span aria-hidden="true">&#9654;</span> Ver en YouTube <span aria-hidden="true">&#8599;</span></a></div>
+<figure class="season-media"><img src="img/temporadas/temporada-3.jpg" alt="Momentos de la temporada 3" width="1280" height="720" loading="lazy" decoding="async"></figure>
 </article>
-<article class="season-card" id="temporada4" hidden>
-<div class="season-copy">
-<span class="season-number" aria-hidden="true">04</span>
-<span class="eyebrow">Temporada 4 · 1997–1998</span>
-<h3>Un viaje que lo cambia todo</h3>
-<p>Phoebe toma una decisión generosa para ayudar a su hermano. Una competencia cambia los departamentos y el grupo termina viajando a Londres para una boda.</p>
-<ul>
-<li>El concurso por los departamentos.</li>
-<li>La boda de Ross y Emily; Monica y Chandler se acercan.</li>
-</ul>
-<h4>Para volver a ver</h4>
-<p class="episode-list">The One with the Embryos<br/>The One with Ross’s Wedding</p>
-</div>
-<figure class="season-media">
-<div class="season-video">
-<img src="img/temporadas/temporada-4.jpg" alt="Temporada 4: Momentos del grupo" width="1280" height="720" loading="lazy">
-</div>
-<figcaption>
-<p>Temporada 4: Momentos del grupo</p>
-<a class="button season-video-link" href="https://www.youtube.com/watch?v=2X40DTzNdFA" target="_blank" rel="noopener noreferrer">Ver adelanto oficial ↗</a>
-</figcaption>
-</figure>
+<article class="season-card" id="temporada4" aria-labelledby="season-title-4">
+<div class="season-copy"><span class="eyebrow">Temporada 4</span><h2 id="season-title-4">Un viaje que lo cambia todo</h2><p class="season-summary">Un viaje a Londres termina con una boda inolvidable.</p>
+<a class="season-video-link" href="https://www.youtube.com/watch?v=2X40DTzNdFA" target="_blank" rel="noopener noreferrer" aria-label="Ver temporada 4 en YouTube (abre en otra pesta&#241;a)"><span aria-hidden="true">&#9654;</span> Ver en YouTube <span aria-hidden="true">&#8599;</span></a></div>
+<figure class="season-media"><img src="img/temporadas/temporada-4.jpg" alt="Momentos de la temporada 4" width="1280" height="720" loading="lazy" decoding="async"></figure>
 </article>
-<article class="season-card" id="temporada5" hidden>
-<div class="season-copy">
-<span class="season-number" aria-hidden="true">05</span>
-<span class="eyebrow">Temporada 5 · 1998–1999</span>
-<h3>El secreto peor guardado</h3>
-<p>Monica y Chandler intentan mantener su relación en secreto mientras sus amigos van descubriendo la verdad. Un viaje a Las Vegas cierra la temporada con sorpresas.</p>
-<ul>
-<li>Phoebe da a luz a los trillizos.</li>
-<li>Ross y Rachel se casan en Las Vegas.</li>
-</ul>
-<h4>Para volver a ver</h4>
-<p class="episode-list">The One Hundredth<br/>The One Where Everybody Finds Out</p>
-</div>
-<figure class="season-media">
-<div class="season-video">
-<img src="img/temporadas/temporada-5.jpg" alt="Temporada 5: Momentos del grupo" width="1280" height="720" loading="lazy">
-</div>
-<figcaption>
-<p>Temporada 5: Momentos del grupo</p>
-<a class="button season-video-link" href="https://www.youtube.com/watch?v=RSLnwpSfe-4" target="_blank" rel="noopener noreferrer">Ver adelanto oficial ↗</a>
-</figcaption>
-</figure>
+<article class="season-card" id="temporada5" aria-labelledby="season-title-5">
+<div class="season-copy"><span class="eyebrow">Temporada 5</span><h2 id="season-title-5">El secreto peor guardado</h2><p class="season-summary">Monica y Chandler guardan un secreto. Vegas los espera.</p>
+<a class="season-video-link" href="https://www.youtube.com/watch?v=RSLnwpSfe-4" target="_blank" rel="noopener noreferrer" aria-label="Ver temporada 5 en YouTube (abre en otra pesta&#241;a)"><span aria-hidden="true">&#9654;</span> Ver en YouTube <span aria-hidden="true">&#8599;</span></a></div>
+<figure class="season-media"><img src="img/temporadas/temporada-5.jpg" alt="Momentos de la temporada 5" width="1280" height="720" loading="lazy" decoding="async"></figure>
 </article>
-<article class="season-card" id="temporada6" hidden>
-<div class="season-copy">
-<span class="season-number" aria-hidden="true">06</span>
-<span class="eyebrow">Temporada 6 · 1999–2000</span>
-<h3>Un hogar de a dos</h3>
-<p>Monica y Chandler deciden vivir juntos y Rachel se muda con Phoebe. Ross intenta resolver las consecuencias de Las Vegas, mientras el grupo sigue creciendo.</p>
-<ul>
-<li>Ross empieza a trabajar como profesor.</li>
-<li>Una propuesta de matrimonio para Monica y Chandler.</li>
-</ul>
-<h4>Para volver a ver</h4>
-<p class="episode-list">The One with the Routine<br/>The One with the Proposal</p>
-</div>
-<figure class="season-media">
-<div class="season-video">
-<img src="img/temporadas/temporada-6.jpg" alt="Temporada 6: Los momentos de Chandler" width="1280" height="720" loading="lazy">
-</div>
-<figcaption>
-<p>Temporada 6: Los momentos de Chandler</p>
-<a class="button season-video-link" href="https://www.youtube.com/watch?v=0gKrwudntdg" target="_blank" rel="noopener noreferrer">Ver adelanto oficial ↗</a>
-</figcaption>
-</figure>
+<article class="season-card" id="temporada6" aria-labelledby="season-title-6">
+<div class="season-copy"><span class="eyebrow">Temporada 6</span><h2 id="season-title-6">Un hogar de a dos</h2><p class="season-summary">El grupo cambia de etapa entre mudanzas y compromisos.</p>
+<a class="season-video-link" href="https://www.youtube.com/watch?v=0gKrwudntdg" target="_blank" rel="noopener noreferrer" aria-label="Ver temporada 6 en YouTube (abre en otra pesta&#241;a)"><span aria-hidden="true">&#9654;</span> Ver en YouTube <span aria-hidden="true">&#8599;</span></a></div>
+<figure class="season-media"><img src="img/temporadas/temporada-6.jpg" alt="Momentos de la temporada 6" width="1280" height="720" loading="lazy" decoding="async"></figure>
 </article>
-<article class="season-card" id="temporada7" hidden>
-<div class="season-copy">
-<span class="season-number" aria-hidden="true">07</span>
-<span class="eyebrow">Temporada 7 · 2000–2001</span>
-<h3>Preparativos y promesas</h3>
-<p>La boda de Monica y Chandler organiza buena parte de la temporada. Entre preparativos, nervios y cambios de planes, los amigos acompañan un nuevo comienzo.</p>
-<ul>
-<li>Joey se prepara para oficiar la boda.</li>
-<li>Un embarazo abre una nueva historia.</li>
-</ul>
-<h4>Para volver a ver</h4>
-<p class="episode-list">The One with the Holiday Armadillo<br/>The One with Monica and Chandler’s Wedding</p>
-</div>
-<figure class="season-media">
-<div class="season-video">
-<img src="img/temporadas/temporada-7.jpg" alt="Temporada 7: Momentos del grupo" width="1280" height="720" loading="lazy">
-</div>
-<figcaption>
-<p>Temporada 7: Momentos del grupo</p>
-<a class="button season-video-link" href="https://www.youtube.com/watch?v=1Yakdqo39UI" target="_blank" rel="noopener noreferrer">Ver adelanto oficial ↗</a>
-</figcaption>
-</figure>
+<article class="season-card" id="temporada7" aria-labelledby="season-title-7">
+<div class="season-copy"><span class="eyebrow">Temporada 7</span><h2 id="season-title-7">Preparativos y promesas</h2><p class="season-summary">Monica y Chandler preparan su boda.</p>
+<a class="season-video-link" href="https://www.youtube.com/watch?v=1Yakdqo39UI" target="_blank" rel="noopener noreferrer" aria-label="Ver temporada 7 en YouTube (abre en otra pesta&#241;a)"><span aria-hidden="true">&#9654;</span> Ver en YouTube <span aria-hidden="true">&#8599;</span></a></div>
+<figure class="season-media"><img src="img/temporadas/temporada-7.jpg" alt="Momentos de la temporada 7" width="1280" height="720" loading="lazy" decoding="async"></figure>
 </article>
-<article class="season-card" id="temporada8" hidden>
-<div class="season-copy">
-<span class="season-number" aria-hidden="true">08</span>
-<span class="eyebrow">Temporada 8 · 2001–2002</span>
-<h3>Bienvenida, Emma</h3>
-<p>Rachel atraviesa su embarazo con el apoyo del grupo. Ross se prepara para volver a ser padre y Joey descubre sentimientos inesperados por su amiga.</p>
-<ul>
-<li>Joey se enamora de Rachel.</li>
-<li>Nace Emma, la hija de Ross y Rachel.</li>
-</ul>
-<h4>Para volver a ver</h4>
-<p class="episode-list">The One with the Videotape<br/>The One Where Rachel Has a Baby</p>
-</div>
-<figure class="season-media">
-<div class="season-video">
-<img src="img/temporadas/temporada-8.jpg" alt="Temporada 8: Rachel va a dar a luz" width="1280" height="720" loading="lazy">
-</div>
-<figcaption>
-<p>Temporada 8: Rachel va a dar a luz</p>
-<a class="button season-video-link" href="https://www.youtube.com/watch?v=B0zV8l9YiL8" target="_blank" rel="noopener noreferrer">Ver adelanto oficial ↗</a>
-</figcaption>
-</figure>
+<article class="season-card" id="temporada8" aria-labelledby="season-title-8">
+<div class="season-copy"><span class="eyebrow">Temporada 8</span><h2 id="season-title-8">Bienvenida, Emma</h2><p class="season-summary">Rachel espera a Emma y Joey descubre nuevos sentimientos.</p>
+<a class="season-video-link" href="https://www.youtube.com/watch?v=B0zV8l9YiL8" target="_blank" rel="noopener noreferrer" aria-label="Ver temporada 8 en YouTube (abre en otra pesta&#241;a)"><span aria-hidden="true">&#9654;</span> Ver en YouTube <span aria-hidden="true">&#8599;</span></a></div>
+<figure class="season-media"><img src="img/temporadas/temporada-8.jpg" alt="Momentos de la temporada 8" width="1280" height="720" loading="lazy" decoding="async"></figure>
 </article>
-<article class="season-card" id="temporada9" hidden>
-<div class="season-copy">
-<span class="season-number" aria-hidden="true">09</span>
-<span class="eyebrow">Temporada 9 · 2002–2003</span>
-<h3>Nuevos planes, nuevos desafíos</h3>
-<p>La crianza de Emma cambia la rutina de Ross y Rachel. Chandler busca otro rumbo profesional y Monica piensa con él en la familia que quieren formar.</p>
-<ul>
-<li>Chandler se orienta hacia la publicidad.</li>
-<li>El grupo viaja a Barbados.</li>
-</ul>
-<h4>Para volver a ver</h4>
-<p class="episode-list">The One with Rachel’s Other Sister<br/>The One in Barbados</p>
-</div>
-<figure class="season-media">
-<div class="season-video">
-<img src="img/temporadas/temporada-9.jpg" alt="Temporada 9: Los momentos de Chandler" width="1280" height="720" loading="lazy">
-</div>
-<figcaption>
-<p>Temporada 9: Los momentos de Chandler</p>
-<a class="button season-video-link" href="https://www.youtube.com/watch?v=s7c9YdEepyM" target="_blank" rel="noopener noreferrer">Ver adelanto oficial ↗</a>
-</figcaption>
-</figure>
+<article class="season-card" id="temporada9" aria-labelledby="season-title-9">
+<div class="season-copy"><span class="eyebrow">Temporada 9</span><h2 id="season-title-9">Nuevos planes, nuevos desafíos</h2><p class="season-summary">Emma crece; los amigos afrontan nuevas decisiones.</p>
+<a class="season-video-link" href="https://www.youtube.com/watch?v=s7c9YdEepyM" target="_blank" rel="noopener noreferrer" aria-label="Ver temporada 9 en YouTube (abre en otra pesta&#241;a)"><span aria-hidden="true">&#9654;</span> Ver en YouTube <span aria-hidden="true">&#8599;</span></a></div>
+<figure class="season-media"><img src="img/temporadas/temporada-9.jpg" alt="Momentos de la temporada 9" width="1280" height="720" loading="lazy" decoding="async"></figure>
 </article>
-<article class="season-card" id="temporada10" hidden>
-<div class="season-copy">
-<span class="season-number" aria-hidden="true">10</span>
-<span class="eyebrow">Temporada 10 · 2003–2004</span>
-<h3>El de la última vez</h3>
-<p>Los amigos toman decisiones que transforman sus vidas. Entre una boda, una adopción y una oportunidad en París, llega el momento de despedirse del departamento.</p>
-<ul>
-<li>Phoebe y Mike se casan.</li>
-<li>Monica y Chandler reciben a sus hijos; Rachel decide quedarse.</li>
-</ul>
-<h4>Para volver a ver</h4>
-<p class="episode-list">The One with Phoebe’s Wedding<br/>The Last One</p>
-</div>
-<figure class="season-media">
-<div class="season-video">
-<img src="img/temporadas/temporada-10.jpg" alt="Temporada 10: Momentos de la despedida" width="1280" height="720" loading="lazy">
-</div>
-<figcaption>
-<p>Temporada 10: Momentos de la despedida</p>
-<a class="button season-video-link" href="https://www.youtube.com/watch?v=dBShxiZGB3w" target="_blank" rel="noopener noreferrer">Ver adelanto oficial ↗</a>
-</figcaption>
-</figure>
+<article class="season-card" id="temporada10" aria-labelledby="season-title-10">
+<div class="season-copy"><span class="eyebrow">Temporada 10</span><h2 id="season-title-10">El de la última vez</h2><p class="season-summary">Una boda, nuevos comienzos y la despedida del grupo.</p>
+<a class="season-video-link" href="https://www.youtube.com/watch?v=dBShxiZGB3w" target="_blank" rel="noopener noreferrer" aria-label="Ver temporada 10 en YouTube (abre en otra pesta&#241;a)"><span aria-hidden="true">&#9654;</span> Ver en YouTube <span aria-hidden="true">&#8599;</span></a></div>
+<figure class="season-media"><img src="img/temporadas/temporada-10.jpg" alt="Momentos de la temporada 10" width="1280" height="720" loading="lazy" decoding="async"></figure>
 </article>
 </section>
-<p class="source-note">Títulos y fechas: <a href="https://www.tvmaze.com/shows/431/friends/episodeguide" target="_blank" rel="noopener noreferrer">guía de episodios de TVmaze ↗</a>. Los títulos se conservan en inglés para facilitar su identificación.</p>
+</div>
 </div>
 </main>
+<section class="audio-banner container" aria-label="Un momento en Central Perk">
+<div class="audio-copy"><h2>Un caf&#233; entre amigos</h2><p>La intro de siempre, cuando vos quieras.</p></div>
+<div class="audio-controls">
+<button id="audio-toggle" class="button intro-player" type="button" aria-pressed="false" aria-label="Reproducir intro de Friends"><span class="player-symbol" aria-hidden="true">&#9654;</span> <span class="player-text">Escuchar intro</span></button>
+<span class="audio-status" role="status">Reproducci&#243;n opcional. Pod&#233;s pausarla cuando quieras.</span>
+</div>
+<a class="button booking-button" href="contacto.html#formulario"><span aria-hidden="true">&#128715;&#65039;</span> Book a Table</a>
+<div class="sound-controls"><span>Efectos de sonido</span></div>
+</section>
 <footer class="site-footer">
 <div class="container">
 <div class="footer-top">
@@ -288,29 +129,16 @@
 <div class="socials" aria-label="Redes sociales">
 <a href="https://www.instagram.com/friends/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
 <a href="https://www.youtube.com/@Friends" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
-<a href="cafe.html#formulario">Escribinos ↗</a>
+<a href="contacto.html#formulario">Escribinos ↗</a>
 </div>
 </div>
 <div class="footer-bottom">
 <p>Proyecto educativo no oficial. Friends y sus personajes pertenecen a sus respectivos titulares. Sin afiliación con Warner Bros. Entertainment.</p>
-<span>© 2026 · Fan site</span>
+<span>© <span data-current-year>2026</span> · Fan site</span>
 </div>
 </div>
 </footer>
-<aside class="global-player" aria-label="Música de Friends">
-<button id="audio-toggle" type="button" aria-pressed="false">
-<span aria-hidden="true">▶</span> Escuchar intro</button>
-<span class="audio-status" role="status">La música la ponés vos.</span>
-<span class="equalizer" aria-hidden="true">
-<i>
-</i>
-<i>
-</i>
-<i>
-</i>
-</span>
-</aside>
 </div>
-<noscript>Activá JavaScript para el carrusel, el mapa seleccionable y la música.</noscript>
+<noscript>Activá JavaScript para usar los controles interactivos.</noscript>
 </body>
 </html>

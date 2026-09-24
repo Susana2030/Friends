@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 120">
+  <g stroke="#886035" stroke-width="3" stroke-linejoin="round">
+    <path d="M42 59l18-27h65l22 27 25 9v30H18V72z" fill="#ffd15e"/>
+    <path d="M65 40h25v23H49zm32 0h24l18 23H97z" fill="#e7e4ed"/>
+    <rect x="79" y="18" width="37" height="16" rx="4" fill="#fff8e9"/>
+    <circle cx="48" cy="98" r="15" fill="#534651"/><circle cx="143" cy="98" r="15" fill="#534651"/>
+  </g>
+  <g fill="#ffe6a5"><circle cx="48" cy="98" r="6"/><circle cx="143" cy="98" r="6"/></g>
+  <text x="97" y="30" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="bold" fill="#534651">TAXI</text>
+  <path d="M72 78h8m8 0h8m8 0h8" stroke="#534651" stroke-width="7"/>
+  <text x="97" y="94" text-anchor="middle" font-family="Georgia,serif" font-size="10" fill="#76513e">NEW YORK</text>
+</svg>

@@ -9,9 +9,13 @@
 <script defer src="js/data.js"></script>
 <script defer src="js/hero.js"></script>
 <script defer src="js/gallery.js"></script>
-<script defer src="js/cafe.js"></script>
+<script defer src="js/audioManager.js"></script>
 <script defer src="js/audio.js"></script>
+<script defer src="js/quiz.js"></script>
+<script defer src="js/contacto.js"></script>
+<script defer src="js/personajes.js"></script>
 <script defer src="js/main.js"></script>
+<script defer src="js/visualEffects.js"></script>
 <script defer src="js/script.js"></script>
 </head>
 <body>
@@ -22,12 +26,13 @@
 <a class="brand" href="index.html" aria-label="Friends, ir al inicio">
 <img src="img/home/friends-logo.png" width="2048" height="800" alt="Friends"/>
 </a>
-<nav id="navegacion" class="navigation " aria-label="Navegación principal">
+<nav id="navegacion" class="navigation" aria-label="Navegación principal">
 <a href="index.html" aria-current="page">Inicio</a>
 <a href="personajes.html">Personajes</a>
 <a href="temporadas.html">Temporadas</a>
 <a href="galeria.html">Galería</a>
-<a class="cafe-nav-link" href="cafe.html" aria-label="Central Perk: ¿Tomamos un café?">
+<a href="quiz.html">Quiz</a>
+<a class="cafe-nav-link" href="contacto.html#formulario" aria-label="Central Perk: contacto y reservas">
 <img src="img/home/central-perk.png" width="1760" height="880" alt="Central Perk">
 </a>
 </nav>
@@ -35,23 +40,36 @@
 </div>
 </header>
 <main id="contenido" tabindex="-1">
-<section class="home-hero " data-intro="color" aria-labelledby="hero-title">
+
+<div class="theme-decorations" aria-hidden="true">
+<img class="theme-sticker sticker-umbrellas" src="img/stickers/umbrellas.svg" alt="" width="180" height="180" loading="lazy" decoding="async">
+<img class="theme-sticker sticker-frame" src="img/stickers/frame.svg" alt="" width="180" height="180" loading="lazy" decoding="async">
+<img class="theme-sticker sticker-taxi" src="img/stickers/taxi.svg" alt="" width="180" height="180" loading="lazy" decoding="async">
+<img class="theme-sticker sticker-coffee" src="img/stickers/coffee.svg" alt="" width="180" height="180" loading="lazy" decoding="async">
+<img class="theme-sticker sticker-lobster" src="img/stickers/lobster.svg" alt="" width="180" height="180" loading="lazy" decoding="async">
+</div>
+<section class="home-hero" aria-labelledby="hero-title">
 <img class="hero-background" src="img/home/Gemini_Generated_Image_yj6yjkyj6yjkyj6y.jpeg" width="1515" height="688" alt="Los seis amigos sentados en una viga sobre Nueva York" fetchPriority="high"/>
+<div class="hero-atmosphere" aria-hidden="true"><span class="steam-plume"></span><span class="steam-plume"></span><span class="steam-plume"></span></div>
 <div class="hero-copy container">
 <h1 id="hero-title">Bienvenidos a Central Perk</h1>
-<p class="hero-description">Seis amigos, un sillón naranja y un millón de momentos inolvidables.</p>
 </div>
 </section>
-<img class="flying-logo" src="img/home/friends-logo.png" width="2048" height="800" alt="" aria-hidden="true" hidden=""/>
-<div class="container series-facts">
-<span>
-<strong>10</strong> temporadas</span>
-<span>
-<strong>6</strong> amigos</span>
-<span>
-<strong>1</strong> café de siempre</span>
-</div>
+<section class="container perk-stats" aria-label="Central Perk en números">
+<div><span aria-hidden="true">☕</span><p><strong>2,871</strong> tazas de café servidas</p></div>
+<div><span aria-hidden="true">🛋️</span><p><strong>1</strong> sillón naranja compartido</p></div>
+<div><span aria-hidden="true">📺</span><p><strong>10</strong> temporadas de momentos inolvidables</p></div>
+</section>
 </main>
+<section class="audio-banner container" aria-label="Un momento en Central Perk">
+<div class="audio-copy"><h2>Un caf&#233; entre amigos</h2><p>La intro de siempre, cuando vos quieras.</p></div>
+<div class="audio-controls">
+<button id="audio-toggle" class="button intro-player" type="button" aria-pressed="false" aria-label="Reproducir intro de Friends"><span class="player-symbol" aria-hidden="true">&#9654;</span> <span class="player-text">Escuchar intro</span></button>
+<span class="audio-status" role="status">Reproducci&#243;n opcional. Pod&#233;s pausarla cuando quieras.</span>
+</div>
+<a class="button booking-button" href="contacto.html#formulario"><span aria-hidden="true">&#128715;&#65039;</span> Book a Table</a>
+<div class="sound-controls"><span>Efectos de sonido</span></div>
+</section>
 <footer class="site-footer">
 <div class="container">
 <div class="footer-top">
@@ -62,29 +80,16 @@
 <div class="socials" aria-label="Redes sociales">
 <a href="https://www.instagram.com/friends/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
 <a href="https://www.youtube.com/@Friends" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
-<a href="cafe.html#formulario">Escribinos ↗</a>
+<a href="contacto.html#formulario">Escribinos ↗</a>
 </div>
 </div>
 <div class="footer-bottom">
 <p>Proyecto educativo no oficial. Friends y sus personajes pertenecen a sus respectivos titulares. Sin afiliación con Warner Bros. Entertainment.</p>
-<span>© 2026 · Fan site</span>
+<span>© <span data-current-year>2026</span> · Fan site</span>
 </div>
 </div>
 </footer>
-<aside class="global-player" aria-label="Música de Friends">
-<button id="audio-toggle" type="button" aria-pressed="false">
-<span aria-hidden="true">▶</span> Escuchar intro</button>
-<span class="audio-status" role="status">La música la ponés vos.</span>
-<span class="equalizer" aria-hidden="true">
-<i>
-</i>
-<i>
-</i>
-<i>
-</i>
-</span>
-</aside>
 </div>
-<noscript><style>.hero-copy > * { opacity: 1; transform: none; }</style>Activá JavaScript para el carrusel, el mapa seleccionable y la música.</noscript>
+<noscript><style>.hero-copy > * { opacity: 1; transform: none; }</style>Activá JavaScript para usar los controles interactivos.</noscript>
 </body>
 </html>

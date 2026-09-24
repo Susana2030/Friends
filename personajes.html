@@ -9,25 +9,30 @@
 <script defer src="js/data.js"></script>
 <script defer src="js/hero.js"></script>
 <script defer src="js/gallery.js"></script>
-<script defer src="js/cafe.js"></script>
+<script defer src="js/audioManager.js"></script>
 <script defer src="js/audio.js"></script>
+<script defer src="js/quiz.js"></script>
+<script defer src="js/contacto.js"></script>
+<script defer src="js/personajes.js"></script>
 <script defer src="js/main.js"></script>
+<script defer src="js/visualEffects.js"></script>
 <script defer src="js/script.js"></script>
 </head>
 <body>
-<div class="app ">
+<div class="app">
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 <header class="site-header">
 <div class="container header-inner">
 <a class="brand" href="index.html" aria-label="Friends, ir al inicio">
 <img src="img/home/friends-logo.png" width="2048" height="800" alt="Friends"/>
 </a>
-<nav id="navegacion" class="navigation " aria-label="Navegación principal">
+<nav id="navegacion" class="navigation" aria-label="Navegación principal">
 <a href="index.html">Inicio</a>
 <a href="personajes.html" aria-current="page">Personajes</a>
 <a href="temporadas.html">Temporadas</a>
 <a href="galeria.html">Galería</a>
-<a class="cafe-nav-link" href="cafe.html" aria-label="Central Perk: ¿Tomamos un café?">
+<a href="quiz.html">Quiz</a>
+<a class="cafe-nav-link" href="contacto.html#formulario" aria-label="Central Perk: contacto y reservas">
 <img src="img/home/central-perk.png" width="1760" height="880" alt="Central Perk">
 </a>
 </nav>
@@ -35,21 +40,31 @@
 </div>
 </header>
 <main id="contenido" tabindex="-1">
+
+<div class="theme-decorations" aria-hidden="true">
+<img class="theme-sticker sticker-umbrellas" src="img/stickers/umbrellas.svg" alt="" width="180" height="180" loading="lazy" decoding="async">
+<img class="theme-sticker sticker-frame" src="img/stickers/frame.svg" alt="" width="180" height="180" loading="lazy" decoding="async">
+<img class="theme-sticker sticker-taxi" src="img/stickers/taxi.svg" alt="" width="180" height="180" loading="lazy" decoding="async">
+<img class="theme-sticker sticker-coffee" src="img/stickers/coffee.svg" alt="" width="180" height="180" loading="lazy" decoding="async">
+<img class="theme-sticker sticker-lobster" src="img/stickers/lobster.svg" alt="" width="180" height="180" loading="lazy" decoding="async">
+</div>
 <div class="container">
 <div class="page-intro">
 <span class="eyebrow">El corazón de la serie</span>
 <h1>Seis amigos.<br/>Una familia elegida.</h1>
 <p>Sus diferencias hacen que todo funcione. Conocé las historias, vínculos y pequeños detalles de cada protagonista.</p>
 </div>
-<p class="notice">Incluye detalles de la trama. Las fotos individuales son retratos reales del elenco.</p>
 <section class="character-list" aria-label="Los seis protagonistas">
-<article class="character-card" id="rachel">
-<div class="portrait">
+<article class="character-card" id="rachel" aria-labelledby="name-rachel">
+<button class="portrait portrait-toggle" type="button" aria-label="Frase de Rachel" aria-pressed="false" aria-describedby="quote-rachel">
 <img src="img/personajes/rachel.jpg" width="600" height="650" loading="lazy" alt="Retrato de Jennifer Aniston, quien interpreta a Rachel Green"/>
-<span class="tag">Moda y nuevos comienzos</span>
-</div>
+<span class="character-quote" id="quote-rachel">It's not that common!</span>
+</button>
 <div class="character-copy">
-<h3>Rachel Green</h3>
+<h2 id="name-rachel">Rachel</h2>
+<p class="character-subtitle">Moda y nuevos comienzos</p>
+<details class="character-details"><summary>Historia y vínculos</summary>
+<p><strong>Rachel Green</strong></p>
 <p class="actor-name">Jennifer Aniston</p>
 <p>Empieza de cero al llegar al departamento de Monica. De sus primeros días como camarera pasa a construir una carrera en la moda, mientras aprende a vivir con independencia.</p>
 <p class="detail">
@@ -57,15 +72,19 @@
 <br/>Su llegada vestida de novia pone en marcha la historia.</p>
 <p>Decidida y sociable, aprende a sostenerse por sí misma.</p>
 <p>Su amistad con Monica y su relación con Ross son centrales. Con Ross tiene a Emma.</p>
+</details>
 </div>
 </article>
-<article class="character-card" id="monica">
-<div class="portrait">
+<article class="character-card" id="monica" aria-labelledby="name-monica">
+<button class="portrait portrait-toggle" type="button" aria-label="Frase de Monica" aria-pressed="false" aria-describedby="quote-monica">
 <img src="img/personajes/monica.jpg" width="600" height="650" loading="lazy" alt="Retrato de Courteney Cox, quien interpreta a Monica Geller"/>
-<span class="tag">La anfitriona del grupo</span>
-</div>
+<span class="character-quote" id="quote-monica">I KNOW!</span>
+</button>
 <div class="character-copy">
-<h3>Monica Geller</h3>
+<h2 id="name-monica">Monica</h2>
+<p class="character-subtitle">La anfitriona del grupo</p>
+<details class="character-details"><summary>Historia y vínculos</summary>
+<p><strong>Monica Geller</strong></p>
 <p class="actor-name">Courteney Cox</p>
 <p>Apasionada, competitiva y generosa, convierte su departamento en el corazón del grupo. Le encanta cocinar para sus amigos y hacer que todo esté perfectamente organizado.</p>
 <p class="detail">
@@ -73,15 +92,19 @@
 <br/>Es la hermana menor de <strong>Ross</strong> y disfruta ganar cualquier competencia.</p>
 <p>De la búsqueda de estabilidad profesional a formar una familia con Chandler.</p>
 <p>Competitiva y detallista; es hermana de Ross y amiga de Rachel desde la escuela.</p>
+</details>
 </div>
 </article>
-<article class="character-card" id="phoebe">
-<div class="portrait">
+<article class="character-card" id="phoebe" aria-labelledby="name-phoebe">
+<button class="portrait portrait-toggle" type="button" aria-label="Frase de Phoebe" aria-pressed="false" aria-describedby="quote-phoebe">
 <img src="img/personajes/phoebe.jpg" width="600" height="650" loading="lazy" alt="Retrato de Lisa Kudrow, quien interpreta a Phoebe Buffay"/>
-<span class="tag">Una voz muy propia</span>
-</div>
+<span class="character-quote" id="quote-phoebe">Smelly Cat 🎸</span>
+</button>
 <div class="character-copy">
-<h3>Phoebe Buffay</h3>
+<h2 id="name-phoebe">Phoebe</h2>
+<p class="character-subtitle">Una voz muy propia</p>
+<details class="character-details"><summary>Historia y vínculos</summary>
+<p><strong>Phoebe Buffay</strong></p>
 <p class="actor-name">Lisa Kudrow</p>
 <p>Creativa y de espíritu libre, encuentra una perspectiva inesperada en cada situación. Sus canciones, su guitarra y su sinceridad llenan Central Perk de momentos inolvidables.</p>
 <p class="detail">
@@ -89,15 +112,19 @@
 <br/>Compone e interpreta Smelly Cat.</p>
 <p>Su independencia convive con una gran generosidad: gesta a los trillizos de su hermano y se casa con Mike.</p>
 <p>Excéntrica, directa y leal; su hermana gemela se llama Ursula.</p>
+</details>
 </div>
 </article>
-<article class="character-card" id="joey">
-<div class="portrait">
+<article class="character-card" id="joey" aria-labelledby="name-joey">
+<button class="portrait portrait-toggle" type="button" aria-label="Frase de Joey" aria-pressed="false" aria-describedby="quote-joey">
 <img src="img/personajes/joey.jpg" width="600" height="650" loading="lazy" alt="Retrato de Matt LeBlanc, quien interpreta a Joey Tribbiani"/>
-<span class="tag">Un amigo de gran corazón</span>
-</div>
+<span class="character-quote" id="quote-joey">How you doin'?</span>
+</button>
 <div class="character-copy">
-<h3>Joey Tribbiani</h3>
+<h2 id="name-joey">Joey</h2>
+<p class="character-subtitle">Un gran corazón</p>
+<details class="character-details"><summary>Historia y vínculos</summary>
+<p><strong>Joey Tribbiani</strong></p>
 <p class="actor-name">Matt LeBlanc</p>
 <p>Sueña con triunfar como actor. Su confianza, su amor por la comida y la lealtad hacia sus amigos hacen de él un compañero entrañable, especialmente para <strong>Chandler</strong>.</p>
 <p class="detail">
@@ -105,15 +132,19 @@
 <br/>La comida de Joey es un asunto muy serio.</p>
 <p>Entre audiciones y Days of Our Lives, aprende a afrontar el rechazo sin abandonar la actuación.</p>
 <p>Su amistad con Chandler y su enamoramiento de Rachel muestran su lado más afectuoso.</p>
+</details>
 </div>
 </article>
-<article class="character-card" id="chandler">
-<div class="portrait">
+<article class="character-card" id="chandler" aria-labelledby="name-chandler">
+<button class="portrait portrait-toggle" type="button" aria-label="Frase de Chandler" aria-pressed="false" aria-describedby="quote-chandler">
 <img src="img/personajes/chandler.jpg" width="600" height="650" loading="lazy" alt="Retrato de Matthew Perry, quien interpreta a Chandler Bing"/>
-<span class="tag">Humor en el momento justo</span>
-</div>
+<span class="character-quote" id="quote-chandler">Could this BE any more...?</span>
+</button>
 <div class="character-copy">
-<h3>Chandler Bing</h3>
+<h2 id="name-chandler">Chandler</h2>
+<p class="character-subtitle">Humor en el momento justo</p>
+<details class="character-details"><summary>Historia y vínculos</summary>
+<p><strong>Chandler Bing</strong></p>
 <p class="actor-name">Matthew Perry</p>
 <p>Usa el sarcasmo para atravesar situaciones incómodas, pero detrás de sus chistes hay un amigo sensible. Su relación con Monica muestra cuánto puede crecer junto a alguien.</p>
 <p class="detail">
@@ -121,15 +152,19 @@
 <br/>Sus amigos nunca recuerdan exactamente a qué se dedica al principio.</p>
 <p>De evitar el compromiso a casarse con Monica y convertirse en padre adoptivo.</p>
 <p>Irónico y vulnerable; su convivencia con Joey es uno de los grandes vínculos de la serie.</p>
+</details>
 </div>
 </article>
-<article class="character-card" id="ross">
-<div class="portrait">
+<article class="character-card" id="ross" aria-labelledby="name-ross">
+<button class="portrait portrait-toggle" type="button" aria-label="Frase de Ross" aria-pressed="false" aria-describedby="quote-ross">
 <img src="img/personajes/ross.jpg" width="600" height="650" loading="lazy" alt="Retrato de David Schwimmer, quien interpreta a Ross Geller"/>
-<span class="tag">Dinosaurios y grandes gestos</span>
-</div>
+<span class="character-quote" id="quote-ross">PIVOT!</span>
+</button>
 <div class="character-copy">
-<h3>Ross Geller</h3>
+<h2 id="name-ross">Ross</h2>
+<p class="character-subtitle">Dinosaurios y grandes gestos</p>
+<details class="character-details"><summary>Historia y vínculos</summary>
+<p><strong>Ross Geller</strong></p>
 <p class="actor-name">David Schwimmer</p>
 <p>Romántico y entusiasta de la ciencia, combina su vida académica con relaciones complicadas. Su historia con <strong>Rachel</strong> atraviesa las temporadas, entre encuentros, dudas y segundas oportunidades.</p>
 <p class="detail">
@@ -137,6 +172,7 @@
 <br/>Puede convertir una mudanza de sofá en una escena inolvidable.</p>
 <p>Aprende a ser padre de Ben y Emma mientras su relación con Rachel atraviesa varias etapas.</p>
 <p>Hermano de Monica, romántico y algo obstinado; su pasión por los dinosaurios lo acompaña siempre.</p>
+</details>
 </div>
 </article>
 </section>
@@ -198,6 +234,15 @@
 </div>
 </section>
 </main>
+<section class="audio-banner container" aria-label="Un momento en Central Perk">
+<div class="audio-copy"><h2>Un caf&#233; entre amigos</h2><p>La intro de siempre, cuando vos quieras.</p></div>
+<div class="audio-controls">
+<button id="audio-toggle" class="button intro-player" type="button" aria-pressed="false" aria-label="Reproducir intro de Friends"><span class="player-symbol" aria-hidden="true">&#9654;</span> <span class="player-text">Escuchar intro</span></button>
+<span class="audio-status" role="status">Reproducci&#243;n opcional. Pod&#233;s pausarla cuando quieras.</span>
+</div>
+<a class="button booking-button" href="contacto.html#formulario"><span aria-hidden="true">&#128715;&#65039;</span> Book a Table</a>
+<div class="sound-controls"><span>Efectos de sonido</span></div>
+</section>
 <footer class="site-footer">
 <div class="container">
 <div class="footer-top">
@@ -208,29 +253,16 @@
 <div class="socials" aria-label="Redes sociales">
 <a href="https://www.instagram.com/friends/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
 <a href="https://www.youtube.com/@Friends" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
-<a href="cafe.html#formulario">Escribinos ↗</a>
+<a href="contacto.html#formulario">Escribinos ↗</a>
 </div>
 </div>
 <div class="footer-bottom">
 <p>Proyecto educativo no oficial. Friends y sus personajes pertenecen a sus respectivos titulares. Sin afiliación con Warner Bros. Entertainment.</p>
-<span>© 2026 · Fan site</span>
+<span>© <span data-current-year>2026</span> · Fan site</span>
 </div>
 </div>
 </footer>
-<aside class="global-player" aria-label="Música de Friends">
-<button id="audio-toggle" type="button" aria-pressed="false">
-<span aria-hidden="true">▶</span> Escuchar intro</button>
-<span class="audio-status" role="status">La música la ponés vos.</span>
-<span class="equalizer" aria-hidden="true">
-<i>
-</i>
-<i>
-</i>
-<i>
-</i>
-</span>
-</aside>
 </div>
-<noscript>Activá JavaScript para el carrusel, el mapa seleccionable y la música.</noscript>
+<noscript>Activá JavaScript para usar los controles interactivos.</noscript>
 </body>
 </html>
